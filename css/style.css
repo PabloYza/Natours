@@ -53,11 +53,13 @@ body {
   top: 40%;
   left: 50%;  
   transform: translate(-50%, -50%); /* this % are in relation to the element itself (and not the parent) - this way we set it right in the middle */
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase; 
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -66,8 +68,8 @@ body {
   font-weight: 400;
   letter-spacing: 35px;
 
-  animation-name: moveInLeft;
-  animation-duration: 5s;
+  animation-name: moveInTop;
+  animation-duration: 2s;
 
   /* 
   animation-delay: 3s; waits the set time and then it executes the animation
@@ -82,11 +84,11 @@ body {
   font-weight: 700;
   letter-spacing: 17px;
 
-  animation-name: moveInRight;
+  animation-name: moveInBottom;
   animation-duration: 2s;
 }
 
-@keyframes moveInLeft {
+@keyframes moveInTop {
   0% {
     opacity: 0; /* hides the element */
     transform: translateY(-100px); /* this will make the element come from the far left */
@@ -98,7 +100,7 @@ body {
   }
 }
 
-@keyframes moveInRight {
+@keyframes moveInBottom {
   0% {
     opacity: 0;
     transform: translateY(100px);
@@ -108,4 +110,59 @@ body {
     opacity: 1;
     transform: translate(0);
   }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px; /* to round the edges of the btn */
+  transition: all .2s; /* controls the speed of the animations: all (to reference all the animations) time */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* ARGS: (direction of the shadow) X   Y   BLURR   COLOR*/
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 5px rgba(0,0,0,.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* defines the position of the elements if they are on top of another */
+  transition: all .4s;
+
+}
+.btn-white::after {
+  background-color: #fff
+}
+
+.btn:hover::after {
+  transform: scale(1.5); /* increase the size of the element, Nx */
+  opacity: 0; /* sets something to invisble */
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards; /* it will automatically apply the styles of the 0% state, before the animation starts */
 }

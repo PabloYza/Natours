@@ -65,6 +65,15 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 5s;
+
+  /* 
+  animation-delay: 3s; waits the set time and then it executes the animation
+  animation-iteration-count: 3; will execute the animation as many times as we set
+  animation-timing-function: 
+  */
 }
 
 .heading-primary-sub {
@@ -72,5 +81,31 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17px;
+
+  animation-name: moveInRight;
+  animation-duration: 2s;
 }
 
+@keyframes moveInLeft {
+  0% {
+    opacity: 0; /* hides the element */
+    transform: translateY(-100px); /* this will make the element come from the far left */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); /* This will return the element to its original state */  
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

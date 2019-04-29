@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* the default Fontsize is 16px - we want it to be 10px, but is bad practice to set it directly. if we say 100% as fontSize it means that is 16px
+so we divide 10/16= 0.625 -> to get the % equivalent to 10px = 62.5% 
+****Definition of 1rem****
+*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}

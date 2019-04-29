@@ -1,168 +1,142 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: inherit; }
+
+/* the default Fontsize is 16px - we want it to be 10px, but is bad practice to set it directly. if we say 100% as fontSize it means that is 16px
+so we divide 10/16= 0.625 -> to get the % equivalent to 10px = 62.5% 
+****Definition of 1rem****
+*/
+html {
+  font-size: 62.5%; }
 
 body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #777;
-  padding: 30px;
-}
-
-.header {
-  height: 95vh;     /* Degradado (direccion, color Primario, color secundario) */
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(126, 213, 111, 0.8), 
-    rgba(40, 180, 133, 0.8)),
-    url('../img/hero.jpg');
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  /* to cut the img we need to specify the coordinates - clockwise order starting at TOP LEFT 
-  (X - horizontal from LEFT to RIGHT) (y - vertical form TOP to BOTTOM)
-  4 corners so 4 coordinates (x y, x y,..)*/
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
-}
-
-.logo-box {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-}
-
-.logo {
-  height: 35px;
-}
-
-.text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;  
-  transform: translate(-50%, -50%); /* this % are in relation to the element itself (and not the parent) - this way we set it right in the middle */
-  text-align: center;
-}
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase; 
-  margin-bottom: 60px;
-}
-
-.heading-primary-main {
-  display: block;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 35px;
-
-  animation-name: moveInTop;
-  animation-duration: 2s;
-
-  /* 
-  animation-delay: 3s; waits the set time and then it executes the animation
-  animation-iteration-count: 3; will execute the animation as many times as we set
-  animation-timing-function: 
-  */
-}
-
-.heading-primary-sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 17px;
-
-  animation-name: moveInBottom;
-  animation-duration: 2s;
-}
+  box-sizing: border-box; }
 
 @keyframes moveInTop {
   0% {
-    opacity: 0; /* hides the element */
-    transform: translateY(-100px); /* this will make the element come from the far left */
-  }
-
+    opacity: 0;
+    /* hides the element */
+    transform: translateY(-10rem);
+    /* this will make the element come from the far left */ }
   100% {
     opacity: 1;
-    transform: translate(0); /* This will return the element to its original state */  
-  }
-}
+    transform: translate(0);
+    /* This will return the element to its original state */ } }
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(100px);
-  }
-
+    transform: translateY(10rem); }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInTop;
+    animation-duration: 2s;
+    /* 
+    animation-delay: 3s; waits the set time and then it executes the animation
+    animation-iteration-count: 3; will execute the animation as many times as we set
+    animation-timing-function: 
+    */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation-name: moveInBottom;
+    animation-duration: 2s; }
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px; /* to round the edges of the btn */
-  transition: all .2s; /* controls the speed of the animations: all (to reference all the animations) time */
+  border-radius: 10rem;
+  /* to round the edges of the btn */
+  transition: all 0.2s;
+  /* controls the speed of the animations: all (to reference all the animations) time */
   position: relative;
-}
+  font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3px);
   /* ARGS: (direction of the shadow) X   Y   BLURR   COLOR*/
-  box-shadow: 0 10px 20px rgba(0,0,0,.2);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scale(1.5);
+    /* increase the size of the element, Nx */
+    opacity: 0;
+    /* sets something to invisble */ }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 5px rgba(0,0,0,.2);
-}
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
-  color: #777;
-
-}
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* defines the position of the elements if they are on top of another */
-  transition: all .4s;
+  z-index: -1;
+  /* defines the position of the elements if they are on top of another */
+  transition: all 0.4s; }
 
-}
-.btn-white::after {
-  background-color: #fff
-}
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /* it will automatically apply the styles of the 0% state, before the animation starts */ }
 
-.btn:hover::after {
-  transform: scale(1.5); /* increase the size of the element, Nx */
-  opacity: 0; /* sets something to invisble */
-}
-
-.btn-animated {
-  animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards; /* it will automatically apply the styles of the 0% state, before the animation starts */
-}
+.header {
+  height: 95vh;
+  /* Degradado (direccion, color Primario, color secundario) */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  /* to cut the img we need to specify the coordinates - clockwise order starting at TOP LEFT 
+  (X - horizontal from LEFT to RIGHT) (y - vertical form TOP to BOTTOM)
+  4 corners so 4 coordinates (x y, x y,..)*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* this % are in relation to the element itself (and not the parent) - this way we set it right in the middle */
+    text-align: center; }

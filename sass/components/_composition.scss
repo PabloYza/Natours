@@ -1,0 +1,38 @@
+.composition {
+  position: relative; //this sets the 0,0 coordinates at the top left corner of the Composition Element
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    position: absolute; //this will position the elements according to the position of the PARENT
+    z-index: 10;
+    transition: all .3s;
+    outline-offset: 2rem; //space between the green border and the picture
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+    &--p2 {
+      left: 20rem;
+      top: 10rem;
+    }
+    &--p3 {
+      left: 5rem;
+      top: 20rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid $color-primary; //green border
+      transform: scale(1.1) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20; // because it has the HIGHEST zIndex it will overlap the rest
+      
+    }
+  }
+// when we hover the composition -> composition photo which is NOT hovered
+  &:hover &__photo:not(:hover) {
+    transform: scale(.95); //scale down < 1 -- negative values TURN the img
+  }
+}

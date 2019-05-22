@@ -12,6 +12,7 @@
   /* to cut the img we need to specify the coordinates - clockwise order starting at TOP LEFT 
   (X - horizontal from LEFT to RIGHT) (y - vertical form TOP to BOTTOM)
   4 corners so 4 coordinates (x y, x y,..)*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box{

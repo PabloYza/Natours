@@ -12,9 +12,3 @@ To do that I will build 3 different websites:
 - Trillo: Master flexbox
 - Nexter: Master CSS grid layouts
 
-
-To set up a watcher of scss that compiles into css:
-    "Scripts": {
-        "build-css": "node-sass --include-path scss sass/main.scss css/style.css -w"
-    } 
-    npm run build-css

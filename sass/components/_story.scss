@@ -1,20 +1,66 @@
-/* .story {
+.story {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba($color-black, .1);
-  background-color: $color-white;
+  background-color: rgba($color-white, .6);
   border-radius: 3px;
-	padding: 6rem;
-	font-size: $default-font-size;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+
+  &:not(:last-child) {
+    margin-bottom: 7rem;
+  }
 
 
 	&__shape {
 		width: 15rem;
 		height: 15rem;
 		float: left;
-		background-color: red;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%); // shape-outside: defines where the content floats around the element
+    //  to create a circle(Radius, define where the center is)
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%); // cuts the container with the shape defined
+    transform: translateX(-3rem) skewX(12deg);; // clipped elements should be moved using Translate (up/down Y) (left/right X)
+    position: relative;
 	}
 
+  &__img {
+    // width: 100%; It clips the picture because its wider than its high, fix ---->
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all .5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    color: $color-white;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
 
 
-} */
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);  // to create the blur and darken of the img   
+  }
+}

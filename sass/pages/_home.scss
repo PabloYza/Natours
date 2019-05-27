@@ -30,46 +30,6 @@
 }
 
 .section-stories {
-  padding: 15rem 0;
-  background-color: $color-grey-light-1; 
-}
-
-.story {
-  width: 75%;
-  margin: 0 auto;
-  box-shadow: 0 3rem 6rem rgba($color-black, .1);
-  background-color: $color-white;
-  border-radius: 3px;
-  padding: 6rem;
-  padding-left: 9rem;
-  font-size: $default-font-size;
-  transform: skewX(-12deg);
-
-
-  &:not(:last-child) {
-    margin-bottom: 7rem;
-  }
-
-
-	&__shape {
-		width: 15rem;
-		height: 15rem;
-		float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%); // shape-outside: defines where the content floats around the element
-    //  to create a circle(Radius, define where the center is)
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%); // cuts the container with the shape defined
-    transform: translateX(-3rem) skewX(12deg);; // clipped elements should be moved using Translate (up/down Y) (left/right X)
-	}
-
-  &__img {
-    // width: 100%; It clips the picture because its wider than its high, fix ---->
-    height: 100%;
-  }
-
-  &__text {
-    transform: skewX(12deg);
-  }
-
+  padding: 10rem 0;
+  position: relative;
 }

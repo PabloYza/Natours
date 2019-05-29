@@ -58,3 +58,58 @@
 }
 
 
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, .8);
+  z-index: 2001;
+
+  &__content {
+    @include center;
+
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 1%;
+    display: table-cell; // creates 2 boxes of the same height
+    overflow: hidden;
+  
+  }
+
+  &__left {
+    width: 33.33333333333333%;
+    display: table-cell; // creates 2 boxes of the same height
+  }
+
+  &__right {
+    width: 66.666666666%;
+    display: table-cell; // creates 2 boxes of the same height
+    vertical-align: middle; 
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    -moz-column-count: 2; //it creates (2) columns for our text
+    -moz-column-gap: 4rem; // define the size of the space between text
+    -moz-column-rule: 1px solid $color-grey-light-2; // creates an HR between the columns
+    column-count: 2; //it creates (2) columns for our text
+    column-gap: 4rem; // define the size of the space between text
+    column-rule: 1px solid $color-grey-light-2; // creates an HR between the columns
+    
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto; // automatically places hyphens
+  }
+}

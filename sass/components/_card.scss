@@ -121,10 +121,7 @@
 
 		// BACK SIDE STYLING
 		&__cta { // Best way to center something in its parent elemnt
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
+      @include center;
 			width: 90%;
 			text-align: center;
 		}

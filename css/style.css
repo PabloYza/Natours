@@ -1,3 +1,18 @@
+/*
+0 - 600px:        Phone
+600px - 900px:    Tablet portrait
+900px-1200px:     Tablet landscape
+[1200px - 1800px] where our styles apply
+1800px + :        Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em=16px  default fontSize from the browser
+*/
 *,
 *::after,
 *::before {
@@ -7,10 +22,18 @@
 
 /* the default Fontsize is 16px - we want it to be 10px, but is bad practice to set it directly. if we say 100% as fontSize it means that is 16px
 so we divide 10/16= 0.625 -> to get the % equivalent to 10px = 62.5% 
-****Definition of 1rem****
 */
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }

@@ -8,10 +8,22 @@
 
 /* the default Fontsize is 16px - we want it to be 10px, but is bad practice to set it directly. if we say 100% as fontSize it means that is 16px
 so we divide 10/16= 0.625 -> to get the % equivalent to 10px = 62.5% 
-****Definition of 1rem****
 */
 html {
+// Definition of 1rem **** 1rem = 10px  10px/16px = 62.5%
   font-size: 62.5%;
+  
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 
+  }
 }
 
 body {
